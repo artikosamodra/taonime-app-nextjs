@@ -5,6 +5,9 @@ const nextConfig = {
       {
         hostname: "cdn.myanimelist.net", //get source link from cdn animelist
       },
+      {
+        hostname: "placehold.co",
+      },
     ],
   },
 };

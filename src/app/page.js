@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import AnimeList from "./AnimeList/AnimeList";
 import AnimeFetch from "./FetchAPI/FetchAPI";
+import Swipper from "./Utilities/Swipper";
 
 const Home = async () => {
   const topData = await AnimeFetch.TopFetch();
@@ -12,6 +13,26 @@ const Home = async () => {
 
   return (
     <main className="container-fluid mt-20 md:mx-10 mx-0 p-4">
+      {/* RECOMMENDATIONS LIST */}
+      <div>
+        <h1>Recommendation Anime List</h1>
+      </div>
+      <div className="carousel">
+        <div className="grid grid-cols-6">
+          {recomData.data.map((data) => {
+            return(
+              <div key={data.mal_id} className="">
+                <AnimeList.RecomList
+                title={data.entry[0].title}
+                images={data.entry[0].images.webp.image_url}
+                id={data.entry[0].mal_id} />
+              </div>
+            )
+          })}
+        </div>
+        <Swipper />
+      </div>
+
       {/* TOP LIST */}
       <div className="flex justify-between pb-2">
         <h1 className="font-bold text-lg">Top Anime List</h1>
@@ -19,8 +40,7 @@ const Home = async () => {
           Lihat Semua
         </Link>
       </div>
-
-      <div className="">
+      <div>
         <div className="grid lg:grid-cols-6 md:grid-cols-4 grid-cols-2 gap-2">
           {topData.data.map((data) => {
             return (
@@ -36,10 +56,6 @@ const Home = async () => {
         </div>
       </div>
 
-      {/* RECOMMENDATIONS LIST */}
-      <div>
-        <h1>Recommendation Anime List</h1>
-      </div>
     </main>
   );
 };
