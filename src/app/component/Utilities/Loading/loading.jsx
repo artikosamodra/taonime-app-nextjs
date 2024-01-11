@@ -1,0 +1,1 @@
+const loading = "Masih Loading"
