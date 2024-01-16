@@ -1,1 +1,1 @@
-const loading = "Masih Loading"
+// const loading = "Masih Loading"

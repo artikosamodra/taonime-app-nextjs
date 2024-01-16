@@ -1,3 +1,3 @@
-const { REACT_LOADABLE_MANIFEST } = require("next/dist/shared/lib/constants");
+// const { REACT_LOADABLE_MANIFEST } = require("next/dist/shared/lib/constants");
 
-REACT_LOADABLE_MANIFEST
+// REACT_LOADABLE_MANIFEST
