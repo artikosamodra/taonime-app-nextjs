@@ -7,13 +7,28 @@ const InputSearch = () => {
   const searchRef = useRef(); //init input text
   const router = useRouter(); //using router/nav = project in app folder
 
-  //hadling Search Action
+  //===========CODE SERACH HANDLING=============
+  /*hadling Search Function using clik 
   const handleInput = (event) => {
     event.preventDefault();
-    // alert(searchRef.current.value);
-
     const keyword = searchRef.current.value;
-    router.push(`./component/Search/${keyword}`);
+    router.push(`/component/Search/${keyword}`);
+  };
+
+  //handling Serach using Enter Key
+  const handleKey = (event) => {
+    if (event.key === "Enter") {
+      handleInput(event);
+    }
+  }; */
+
+  //===========SEARCH HANDLING SIMPLIFIED=============
+  const handleSearch = (event) => {
+    if (event.key === "Enter" || event.type === "click") {
+      event.preventDefault();
+      const keyword = searchRef.current.value;
+      router.push(`/component/Search/${keyword}`);
+    }
   };
 
   return (
@@ -22,11 +37,12 @@ const InputSearch = () => {
         placeholder="Cari Anime..."
         className="w-full p-1 rounded-md"
         ref={searchRef}
+        onKeyDown={handleSearch}
 
         //useRef method can use onChange like this.
         //onChange={(event) => setinputSearch(event.target.value)}
       />
-      <button className="absolute top-1 end-2" onClick={handleInput}>
+      <button className="absolute top-1 end-2" onClick={handleSearch}>
         <MagnifyingGlass size={24} />
       </button>
     </div>
