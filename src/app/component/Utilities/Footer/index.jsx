@@ -2,7 +2,7 @@ const { default: Image } = require("next/image");
 
 const Footer = () => {
   return (
-    <footer className="bg-blue-500">
+    <footer className="bg-amber-400">
       <div className="mx-10">
         <h1 className="font-bold text-lg py-2">Social Media</h1>
         <div className="grid md:grid-cols-4 grid-cols-2 gap-5">

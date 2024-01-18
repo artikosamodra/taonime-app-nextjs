@@ -10,7 +10,7 @@ const TopAnime = ({ api }) => {
       <div className="grid lg:grid-cols-6 md:grid-cols-4 grid-cols-2 gap-2">
         {api.data.map((data) => {
           return (
-            <Link href={`/${data.mal_id}`} className="cursor-pointer">
+            <Link key={data.mal_id} href={`/${data.mal_id}`} className="cursor-pointer">
               <div className="">
                 <Image
                   src={data.images.webp.image_url}
@@ -18,6 +18,7 @@ const TopAnime = ({ api }) => {
                   width={400}
                   height={400}
                   className="img-toplist"
+                  priority={true}
                 />
               </div>
               <h3 className="font-bold lg:text-lg md:text-md text-sm p-3">
@@ -34,6 +35,7 @@ const TopAnime = ({ api }) => {
 const RecomAnime = ({ api }) => {
   return (
     <section>
+      <div>
       <Slider dataSlider={api} />
       {/* {api.data.map((data) => {
             return (
@@ -43,7 +45,7 @@ const RecomAnime = ({ api }) => {
               >
                 <div className="">
                   <Image
-                    src={data.images.webp.image_url}
+                    src={data.entry[0].images.webp.image_url}
                     alt="..."
                     width={400}
                     height={400}
@@ -56,11 +58,10 @@ const RecomAnime = ({ api }) => {
               </Link>
             );
           })} */}
+      </div>
     </section>
   );
 };
-
-
 
 const AnimeList = { TopAnime, RecomAnime };
 export default AnimeList;

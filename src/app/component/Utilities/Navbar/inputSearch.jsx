@@ -32,20 +32,23 @@ const InputSearch = () => {
   };
 
   return (
-    <div className="relative">
-      <input
-        placeholder="Cari Anime..."
-        className="w-full p-1 rounded-md"
-        ref={searchRef}
-        onKeyDown={handleSearch}
+    <section>
+      <div className="relative">
+        <input
+          placeholder="Cari Anime..."
+          className="w-full p-1 rounded-md"
+          ref={searchRef}
+          onKeyDown={handleSearch}
 
-        //useRef method can use onChange like this.
-        //onChange={(event) => setinputSearch(event.target.value)}
-      />
-      <button className="absolute top-1 end-2" onClick={handleSearch}>
-        <MagnifyingGlass size={24} />
-      </button>
-    </div>
+          //useRef method can use onChange like this.
+          //onChange={(event) => setinputSearch(event.target.value)}
+        />
+        <button className="absolute top-1 end-2" onClick={handleSearch}>
+          <MagnifyingGlass size={24} />
+        </button>
+      </div>
+      {/* <div></div> */}
+    </section>
   );
 };
 

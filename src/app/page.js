@@ -19,9 +19,9 @@ const Home = async () => {
         {/* RECOMMENDATIONS LIST */}
         <div className="mb-5">
           <Header title="Recommendations Anime List" linkTitle="" linkHref="" />
-          {/* <AnimeList.RecomAnime api={recomData} /> */}
-
           <AnimeList.RecomAnime api={recomData} />
+
+          {/* <AnimeList.RecomAnime api={recomData} /> */}
         </div>
 
         {/* TOP LIST */}
@@ -33,7 +33,7 @@ const Home = async () => {
         {/* HOT SEASON LIST */}
         <div className="">
           <div className="grid md:grid-cols-2 grid-cols-1 gap-5">
-            <div className="rounded-xl py-5 bg-rose-300 grid place-items-center">
+            <div className="rounded-xl py-5 bg-rose-200 grid place-items-center">
               <Header title="Hot This Season" linkTitle="" linkHref="" />
               <ul>
                 <li>Lorem Lorem lorem</li>
@@ -57,6 +57,5 @@ const Home = async () => {
     </>
   );
 };
-
 
 export default Home;

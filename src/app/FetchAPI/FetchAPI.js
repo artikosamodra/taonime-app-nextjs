@@ -15,5 +15,5 @@ const RecomFetch = async () => {
   return response.json();
 };
 
-const AnimeFetch = { TopFetch, RecomFetch};
+const AnimeFetch = { TopFetch, RecomFetch };
 export default AnimeFetch;
