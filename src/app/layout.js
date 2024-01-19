@@ -1,4 +1,4 @@
-import { Gabarito, Inter } from "next/font/google";
+import { Gabarito } from "next/font/google";
 import "./globals.css";
 import Navbar from "./component/Utilities/Navbar";
 import Footer from "./component/Utilities/Footer";
@@ -13,7 +13,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={gabarito.className}>
+      <body className={`${gabarito.className} `} suppressHydrationWarning={true}>
         <Navbar />
         {children}
         <Footer />

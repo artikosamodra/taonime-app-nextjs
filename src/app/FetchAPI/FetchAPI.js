@@ -10,7 +10,7 @@ const TopFetch = async () => {
 const RecomFetch = async () => {
   // Recommendation Anime Fetch
   const response = await fetch(
-    `${process.env.NEXT_PUBLIC_API_BASE_URL}/recommendations/anime`
+    `${process.env.NEXT_PUBLIC_API_BASE_URL}/top/anime?limit=12`
   );
   return response.json();
 };
