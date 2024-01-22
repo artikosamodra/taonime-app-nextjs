@@ -26,7 +26,7 @@ const InputSearch = () => {
   const handleSearch = (event) => {
     const keyword = searchRef.current.value;
 
-    // can if (!keyword) return = if not keyword, value input null
+    // can if (!keyword) return = if not keyword, value input null or failed
     if (keyword.length < 3) return;
 
     if (event.key === "Enter" || event.type === "click") {

@@ -5,7 +5,7 @@ import AnimeList from "./component/AnimeList/AnimeList";
 import AnimeFetch from "./FetchAPI/FetchAPI";
 import Slider from "./component/Utilities/Slider";
 import Header from "./component/AnimeList/Header";
-import Search from "./component/Search/[keyword]/page";
+import Search from "./search/[keyword]/page";
 
 const Home = async () => {
   const topData = await AnimeFetch.TopFetch();
@@ -26,7 +26,7 @@ const Home = async () => {
 
         {/* TOP LIST */}
         <div className="mb-5">
-          <Header title="Top Anime List" linkTitle="Lihat Semua" linkHref="" />
+          <Header title="Top Anime List" linkTitle="Lihat Semua" linkHref="/populer" />
           <AnimeList.TopAnime api={topData} />
         </div>
 
