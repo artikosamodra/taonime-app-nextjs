@@ -1,25 +1,39 @@
 // [keyword] folder = initial for search input (/"input text") >> check in param
 // this Search hit endpoint TopAnime Fetch API
-"use client"
-import AnimeFetch from "@/app/FetchAPI/FetchAPI";
+"use client";
 import AnimeList from "../../AnimeList/AnimeList";
 import Header from "../../AnimeList/Header";
-import { useEffect } from "react";
+import React, { useEffect, useState } from "react";
+import Loading from "@/app/loading";
 
-const Search = async ({ params }) => {
+const Search = ({ params }) => {
   //get query from input
   const { keyword } = params; //same of >> const keyword = params/keyword
+  const [decodedKeyword, setDecodedKeyword] = useState(null);
+  const [searchData, setSearchData] = useState(null);
 
-  //convert char
-  const decodedKeyword = decodeURIComponent(keyword);
   useEffect(() => {
-    console.log(decodedKeyword);
-  }, [decodedKeyword]);
+    const fetchData = async () => {
+      // Convert char
+      const decoded = decodeURIComponent(keyword);
+      setDecodedKeyword(decoded);
 
-  const response = await fetch(
-    `${process.env.NEXT_PUBLIC_API_BASE_URL}/anime?q=${keyword}`
-  );
-  const SearchData = await response.json();
+      // Fetch data
+      const response = await fetch(
+        `${process.env.NEXT_PUBLIC_API_BASE_URL}/anime?q=${keyword}`
+      );
+      await new Promise((resolve) => setTimeout(resolve, 500));
+      const data = await response.json();
+      setSearchData(data);
+    };
+
+    fetchData();
+  }, [keyword]);
+
+  if (!decodedKeyword || !searchData) {
+    // Menampilkan loading atau pesan lainnya jika data masih diambil
+    return <Loading />;
+  }
 
   return (
     <main className="container-fluid mt-20 md:mx-10 mx-0 p-4">
@@ -31,7 +45,7 @@ const Search = async ({ params }) => {
             linkTitle=""
             linkHref=""
           />
-          <AnimeList.TopAnime api={SearchData} />
+          <AnimeList.TopAnime api={searchData} />
         </div>
       </section>
     </main>

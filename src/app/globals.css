@@ -34,3 +34,21 @@
   transition: 0.5s;
   color: rgb(192, 167, 29);
 }
+
+.loader {
+  width:100px;
+  height:100px;
+  color:#766DF4;
+  --c:radial-gradient(farthest-side,currentColor 92%,#0000);
+  background: 
+    var(--c) 50% 0   /24px 24px,
+    var(--c) 50% 100%/24px 24px,
+    var(--c) 100% 50%/24px 24px,
+    var(--c) 0    50%/24px 24px,
+    var(--c) 50%  50%/24px 24px,
+    linear-gradient(currentColor 0 0) 50% 50%/8px 100%,
+    linear-gradient(currentColor 0 0) 50% 50%/100% 8px;
+  background-repeat:no-repeat;
+  animation:s8 0.5s infinite linear;
+}
+@keyframes s8 {to{transform: rotate(.5turn)}}

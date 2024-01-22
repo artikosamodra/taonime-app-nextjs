@@ -8,9 +8,10 @@ const TopAnime = ({ api }) => {
   return (
     <section>
       <div className="grid lg:grid-cols-6 md:grid-cols-4 grid-cols-2 gap-2">
-        {api.data.map((data) => {
+        {api.data.map((data, index) => {
           return (
-            <Link key={data.mal_id} href={`/${data.mal_id}`} className="cursor-pointer">
+            // index is callback, key also can use 'data.mal_id'
+            <Link href={`/${data.mal_id}`} className="cursor-pointer" key={index}>
               <div className="">
                 <Image
                   src={data.images.webp.image_url}

@@ -9,7 +9,7 @@ import Search from "./component/Search/[keyword]/page";
 
 const Home = async () => {
   const topData = await AnimeFetch.TopFetch();
-  const recomData = await AnimeFetch.RecomFetch();
+  // const recomData = await AnimeFetch.RecomFetch();
 
   // console.log(topData);
 
@@ -19,7 +19,7 @@ const Home = async () => {
         {/* RECOMMENDATIONS LIST */}
         <div className="mb-5">
           <Header title="Recommendations Anime List" linkTitle="" linkHref="" />
-          <AnimeList.RecomAnime api={recomData} />
+          <AnimeList.RecomAnime api={topData} />
 
           {/* <AnimeList.RecomAnime api={recomData} /> */}
         </div>

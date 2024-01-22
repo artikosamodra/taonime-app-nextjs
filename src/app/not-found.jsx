@@ -1,5 +1,6 @@
 "use client";
 import { FileSearch } from "@phosphor-icons/react";
+import Link from "next/link";
 
 const Page = () => {
   return (
@@ -14,6 +15,8 @@ const Page = () => {
           <div className="text-sm ">NOT FOUND</div>
         </div>
       </div>
+
+      <Link href="/" className="underline text-blue-700 mt-16 text-xl" > HomePage</Link>
     </section>
   );
 };
