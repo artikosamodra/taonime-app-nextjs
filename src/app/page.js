@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import AnimeList from "./component/AnimeList/AnimeList";
 import AnimeFetch from "./FetchAPI/FetchAPI";
-import Slider from "./component/Utilities/Slider";
+import Slider from "./component/Slider";
 import Header from "./component/AnimeList/Header";
 import Search from "./search/[keyword]/page";
 
@@ -26,7 +26,11 @@ const Home = async () => {
 
         {/* TOP LIST */}
         <div className="mb-5">
-          <Header title="Top Anime List" linkTitle="Lihat Semua" linkHref="/populer" />
+          <Header
+            title="Top Anime List"
+            linkTitle="Lihat Semua"
+            linkHref="/populer"
+          />
           <AnimeList.TopAnime api={topData} />
         </div>
 

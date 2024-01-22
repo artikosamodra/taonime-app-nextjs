@@ -1,17 +1,22 @@
 //ANIMELIST.js
 import Image from "next/image";
 import Link from "next/link";
-import Slider from "../Utilities/Slider";
+import Slider from "../Slider";
 
 // Card Setting Top List
 const TopAnime = ({ api }) => {
   return (
     <section>
       <div className="grid lg:grid-cols-6 md:grid-cols-4 grid-cols-2 gap-2">
-        {api.data.map((data, index) => {
+        {/* '?' from data? = if have data, render now. if not data, waiting. */}
+        {api.data?.map((data, index) => {
           return (
             // index is callback, key also can use 'data.mal_id'
-            <Link href={`/${data.mal_id}`} className="cursor-pointer" key={index}>
+            <Link
+              href={`/${data.mal_id}`}
+              className="cursor-pointer"
+              key={index}
+            >
               <div className="">
                 <Image
                   src={data.images.webp.image_url}
@@ -37,8 +42,8 @@ const RecomAnime = ({ api }) => {
   return (
     <section>
       <div>
-      <Slider dataSlider={api} />
-      {/* {api.data.map((data) => {
+        <Slider dataSlider={api} />
+        {/* {api.data.map((data) => {
             return (
               <Link
                 href={`/${data.mal_id}`}
