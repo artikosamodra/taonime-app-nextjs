@@ -13,7 +13,7 @@ const TopAnime = ({ api }) => {
           return (
             // index is callback, key also can use 'data.mal_id'
             <Link
-              href={`/${data.mal_id}`}
+              href={`/anime/${data.mal_id}`}
               className="cursor-pointer"
               key={index}
             >

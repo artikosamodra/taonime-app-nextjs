@@ -30,6 +30,19 @@
   transition: 0.5s;
 }
 
+/* .img-detail {
+  max-width: 70%;
+  max-height: 300px;
+  object-fit: cover;
+  aspect-ratio: 9 / 16;
+  border-radius: 30px;
+  transition: 0.3s ease all;
+  -webkit-transition: 0.3s ease all;
+  -moz--transition: 0.3s ease all;
+  -ms-transition: 0.3s ease all;
+  -o-transition: 0.3s ease all;
+} */
+
 .title:hover {
   transition: 0.5s;
   color: rgb(192, 167, 29);

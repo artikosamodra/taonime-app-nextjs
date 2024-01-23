@@ -45,7 +45,7 @@ const Slider = ({ dataSlider }) => {
           return (
             <SwiperSlide key={uniqueKey}>
               <Link
-                href={`/${data.mal_id}`}
+                href={`/anime/${data.mal_id}`}
                 className="cursor-pointer"
               >
                 <div className="">
