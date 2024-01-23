@@ -7,7 +7,7 @@ import Slider from "../Slider";
 const TopAnime = ({ api }) => {
   return (
     <section>
-      <div className="grid lg:grid-cols-6 md:grid-cols-4 grid-cols-2 gap-2">
+      <div className="grid lg:grid-cols-7 md:grid-cols-5 grid-cols-2 gap-2">
         {/* '?' from data? = if have data, render now. if not data, waiting. */}
         {api.data?.map((data, index) => {
           return (

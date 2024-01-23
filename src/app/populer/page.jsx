@@ -13,6 +13,7 @@ const Page = () => {
 
   //func fetch
   const fetchTopData = async () => {
+    //default page in jikan, 25 data/page
     const response = await fetch(
       `${process.env.NEXT_PUBLIC_API_BASE_URL}/top/anime?page=${page}` //endpoint with developer "page setting"
     );
@@ -29,12 +30,16 @@ const Page = () => {
     <>
       <section className="container-fluid mt-20 md:mx-10 mx-0 p-4">
         {/* <Header title="All Top Anime List" linkTitle="" linkHref="" /> */}
-        <HeaderMenu />
+        <HeaderMenu title={`ALL TOP ANIME - PAGE #${page}`} />
 
         {/* Fetching Data */}
         <AnimeList.TopAnime api={TopAnime} />
 
-        <Pagination />
+        <Pagination
+          pagePagination={page}
+          lastPage={TopAnime.pagination?.last_visible_page}
+          setPage = {setPage}
+        />
       </section>
     </>
   );
