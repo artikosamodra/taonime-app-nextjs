@@ -27,22 +27,26 @@ const Pagination = ({ pagePagination, lastPage, setPage }) => {
   return (
     <section>
       <div className="flex justify-center items-center py-5 px-2 gap-5 font-bold">
-        <button
-          onClick={handlePrevPage}
-          className="transition-all hover:text-indigo-500"
-        >
-          Prev
-        </button>
+        {pagePagination <= 1 ? null : (
+          <button
+            onClick={handlePrevPage}
+            className="transition-all hover:text-indigo-500"
+          >
+            Prev
+          </button>
+        )}
         {/* this pagePagination is simple change value grom page in parent populer page */}
         <p>
           {pagePagination} of {lastPage}
         </p>
-        <button
-          onClick={handleNextPage}
-          className="transition-all hover:text-indigo-500"
-        >
-          Next
-        </button>
+        {pagePagination >= lastPage ? null : (
+          <button
+            onClick={handleNextPage}
+            className="transition-all hover:text-indigo-500"
+          >
+            Next
+          </button>
+        )}
       </div>
     </section>
   );

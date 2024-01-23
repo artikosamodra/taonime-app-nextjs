@@ -2,7 +2,7 @@
 const TopFetch = async () => {
   // Top Anime Fetch
   const response = await fetch(
-    `${process.env.NEXT_PUBLIC_API_BASE_URL}/top/anime?limit=12`
+    `${process.env.NEXT_PUBLIC_API_BASE_URL}/top/anime?limit=14`
   );
   return response.json();
 };
