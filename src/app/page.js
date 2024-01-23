@@ -6,9 +6,11 @@ import AnimeFetch from "./FetchAPI/FetchAPI";
 import Slider from "./component/Slider";
 import Header from "./component/AnimeList/Header";
 import Search from "./search/[keyword]/page";
+import { getAnimeResponse } from "./libs/api-libs";
 
 const Home = async () => {
   const topData = await AnimeFetch.TopFetch();
+  const recomData = await getAnimeResponse("top/anime", "limit=14"); //at (...., ....) is source and query
   // const recomData = await AnimeFetch.RecomFetch();
 
   // console.log(topData);
@@ -19,7 +21,7 @@ const Home = async () => {
         {/* RECOMMENDATIONS LIST */}
         <div className="mb-5">
           <Header title="Recommendations Anime List" linkTitle="" linkHref="" />
-          <AnimeList.RecomAnime api={topData} />
+          <AnimeList.RecomAnime api={recomData} />
 
           {/* <AnimeList.RecomAnime api={recomData} /> */}
         </div>
