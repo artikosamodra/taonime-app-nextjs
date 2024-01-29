@@ -1,11 +1,11 @@
 "use client"; //useState or useEffect from React
 import React, { useEffect, useState } from "react";
 
-import Header from "../component/AnimeList/Header";
-import HeaderMenu from "../component/Utilities/HeaderMenu";
-import Pagination from "../component/Utilities/Pagination";
+import Header from "../../component/AnimeList/Header";
+import HeaderMenu from "../../component/Utilities/HeaderMenu";
+import Pagination from "../../component/Utilities/Pagination";
 
-import AnimeList from "../component/AnimeList/AnimeList";
+import AnimeList from "../../component/AnimeList/AnimeList";
 
 const Page = () => {
   const [page, setPage] = useState(1);
@@ -38,7 +38,7 @@ const Page = () => {
         <Pagination
           pagePagination={page}
           lastPage={TopAnime.pagination?.last_visible_page}
-          setPage = {setPage}
+          setPage={setPage}
         />
       </section>
     </>

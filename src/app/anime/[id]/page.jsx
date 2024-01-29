@@ -1,9 +1,9 @@
-import Header from "@/app/component/AnimeList/Header";
+import Header from "@/component/AnimeList/Header";
 import Link from "next/link";
-import { getAnimeResponse } from "@/app/libs/api-libs";
+import { getAnimeResponse } from "@/libs/api-libs";
 import Image from "next/image";
-import VideoPlayer from "@/app/component/Utilities/VideoPlayer";
-import AnimeInfo from "@/app/component/Utilities/AnimeInfo";
+import VideoPlayer from "@/component/Utilities/VideoPlayer";
+import AnimeInfo from "@/component/Utilities/AnimeInfo";
 
 //params = default, id from fetch api JIKAN
 const Page = async ({ params: { id } }) => {

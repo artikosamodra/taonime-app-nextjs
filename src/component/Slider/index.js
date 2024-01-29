@@ -11,8 +11,6 @@ import { FreeMode, Pagination } from "swiper/modules";
 import Image from "next/image";
 import Link from "next/link";
 
-// import AnimeList from "../../AnimeList/AnimeList";
-
 const Slider = ({ dataSlider }) => {
   return (
     <>
@@ -40,17 +38,16 @@ const Slider = ({ dataSlider }) => {
         modules={[FreeMode, Pagination]}
         className="mySwiper"
       >
-        {dataSlider.data.map((data) => {
-          const uniqueKey = `${data.mal_id}`;
+        {dataSlider.data?.map((data) => {
           return (
-            <SwiperSlide key={uniqueKey}>
+            <SwiperSlide key={data.mal_id}>
               <Link
-                href={`/anime/${data.mal_id}`}
+                href={`/anime/${data.entry[0].mal_id}`}
                 className="cursor-pointer"
               >
                 <div className="">
                   <Image
-                    src={data.images.webp.image_url}
+                    src={data.entry[0].images.webp.image_url}
                     alt="..."
                     width={400}
                     height={400}
@@ -58,7 +55,7 @@ const Slider = ({ dataSlider }) => {
                   />
                 </div>
                 <h3 className="font-bold lg:text-lg md:text-md text-sm p-3 mb-5">
-                  {data.title}
+                  {data.entry[0].title}
                 </h3>
               </Link>
             </SwiperSlide>

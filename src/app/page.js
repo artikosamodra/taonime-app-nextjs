@@ -1,19 +1,18 @@
 //page.js
 import Image from "next/image";
 import Link from "next/link";
-import AnimeList from "./component/AnimeList/AnimeList";
-import AnimeFetch from "./FetchAPI/FetchAPI";
-import Slider from "./component/Slider";
-import Header from "./component/AnimeList/Header";
+import AnimeList from "../component/AnimeList/AnimeList";
+import AnimeFetch from "../libs/FetchAPI";
+import Slider from "../component/Slider";
+import Header from "../component/AnimeList/Header";
 import Search from "./search/[keyword]/page";
-import { getAnimeResponse } from "./libs/api-libs";
+import { getNestedAnimeResponse } from "../libs/api-libs";
 
 const Home = async () => {
   const topData = await AnimeFetch.TopFetch();
-  const recomData = await getAnimeResponse("top/anime", "limit=14"); //at (...., ....) is source and query
-  // const recomData = await AnimeFetch.RecomFetch();
-
-  // console.log(topData);
+  let recomData = await getNestedAnimeResponse("recommendations/anime");
+  const shuffledData = recomData.data.sort(() => Math.random() - 0.5); //random setting recomAnime
+  const slicedData = { data: shuffledData.slice(0, 12) }; //slice data, display 0 until 12.
 
   return (
     <>
@@ -21,9 +20,7 @@ const Home = async () => {
         {/* RECOMMENDATIONS LIST */}
         <div className="mb-5">
           <Header title="Recommendations Anime List" linkTitle="" linkHref="" />
-          <AnimeList.RecomAnime api={recomData} />
-
-          {/* <AnimeList.RecomAnime api={recomData} /> */}
+          <AnimeList.RecomAnime api={slicedData} />
         </div>
 
         {/* TOP LIST */}

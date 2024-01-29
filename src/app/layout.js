@@ -1,7 +1,7 @@
 import { Gabarito } from "next/font/google";
 import "./globals.css";
-import Navbar from "./component/Navbar";
-import Footer from "./component/Footer";
+import Navbar from "../component/Navbar";
+import Footer from "../component/Footer";
 
 const gabarito = Gabarito({ subsets: ["latin"] });
 
@@ -13,7 +13,10 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`${gabarito.className} `} suppressHydrationWarning={true}>
+      <body
+        className={`${gabarito.className} `}
+        suppressHydrationWarning={true}
+      >
         <Navbar />
         {children}
         <Footer />
