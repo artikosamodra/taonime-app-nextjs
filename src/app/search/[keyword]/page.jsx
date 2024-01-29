@@ -24,6 +24,7 @@ const Search = ({ params }) => {
       );
       await new Promise((resolve) => setTimeout(resolve, 500));
       const data = await response.json();
+      // console.log("searchData:", data);
       setSearchData(data);
     };
 
@@ -37,14 +38,15 @@ const Search = ({ params }) => {
 
   return (
     <main className="container-fluid mt-20 md:mx-10 mx-0 p-4">
-      <section>
+      <section className="min-h-60">
         {/* SEARCH LIST */}
         <div className="mb-5">
           <Header
             title={`Pencarian untuk ${decodedKeyword}... `}
-            linkTitle=""
-            linkHref=""
+            linkTitle="Back to Home"
+            linkHref="/"
           />
+
           <AnimeList.TopAnime api={searchData} />
         </div>
       </section>

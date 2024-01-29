@@ -24,14 +24,15 @@ const InputSearch = () => {
 
   //===========SEARCH HANDLING SIMPLIFIED=============
   const handleSearch = (event) => {
-    const keyword = searchRef.current.value;
+    const keyword = searchRef.current.value.trim(); //trim() = Removes leading and trailing spaces >> use to handle input just space character
 
     // can if (!keyword) return = if not keyword, value input null or failed
     if (keyword.length < 3) return;
 
     if (event.key === "Enter" || event.type === "click") {
       event.preventDefault();
-      router.push(`/component/Search/${keyword}`);
+      router.push(`/search/${keyword}`);
+      // console.log(`${keyword}`);
     }
   };
 
@@ -51,7 +52,6 @@ const InputSearch = () => {
           <MagnifyingGlass size={24} />
         </button>
       </div>
-      {/* <div></div> */}
     </section>
   );
 };
