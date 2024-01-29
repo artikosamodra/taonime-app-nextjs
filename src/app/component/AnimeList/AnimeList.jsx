@@ -48,5 +48,51 @@ const RecomAnime = ({ api }) => {
   );
 };
 
-const AnimeList = { TopAnime, RecomAnime };
+const RankAnime = ({ api }) => {
+  return (
+    <section>
+      <div>
+        {api.data?.map((data, index) => {
+          return (
+            // index is callback, key also can use 'data.mal_id'
+            <Link
+              href={`/anime/${data.mal_id}`}
+              className="cursor-pointer"
+              key={index}
+            >
+              <h3 className="font-bold lg:text-lg md:text-md text-sm p-1 hover:text-indigo-500">
+                {data.rank}. {data.title}
+              </h3>
+            </Link>
+          );
+        })}
+      </div>
+    </section>
+  );
+};
+
+const PopularAnime = ({ api }) => {
+  return (
+    <section>
+      <div>
+      {api.data?.map((data, index) => {
+          return (
+            // index is callback, key also can use 'data.mal_id'
+            <Link
+              href={`/anime/${data.mal_id}`}
+              className="cursor-pointer"
+              key={index}
+            >
+              <h3 className="font-bold lg:text-lg md:text-md text-sm p-1 hover:text-indigo-500">
+                {data.popularity}. {data.title}
+              </h3>
+            </Link>
+          );
+        })}
+      </div>
+    </section>
+  );
+};
+
+const AnimeList = { TopAnime, RecomAnime, RankAnime, PopularAnime };
 export default AnimeList;
