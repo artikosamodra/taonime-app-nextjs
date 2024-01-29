@@ -1,8 +1,8 @@
 // [keyword] folder = initial for search input (/"input text") >> check in param
 // this Search hit endpoint TopAnime Fetch API
 "use client";
-import AnimeList from "../../../component/AnimeList/AnimeList";
-import Header from "../../../component/AnimeList/Header";
+import AnimeList from "../../component/AnimeList/AnimeList";
+import Header from "../../component/AnimeList/Header";
 import React, { useEffect, useState } from "react";
 import Loading from "@/app/loading";
 

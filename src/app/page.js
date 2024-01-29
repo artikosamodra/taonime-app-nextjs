@@ -1,10 +1,10 @@
 //page.js
 import Image from "next/image";
 import Link from "next/link";
-import AnimeList from "../component/AnimeList/AnimeList";
+import AnimeList from "./component/AnimeList/AnimeList";
 import AnimeFetch from "../libs/FetchAPI";
-import Slider from "../component/Slider";
-import Header from "../component/AnimeList/Header";
+import Slider from "./component/Slider";
+import Header from "./component/AnimeList/Header";
 import Search from "./search/[keyword]/page";
 import { getNestedAnimeResponse } from "../libs/api-libs";
 
