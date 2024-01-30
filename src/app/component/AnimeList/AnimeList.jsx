@@ -48,20 +48,43 @@ const RecomAnime = ({ api }) => {
   );
 };
 
-const RankAnime = ({ api }) => {
+const SeasonsAnime = ({ api }) => {
   return (
     <section>
-      <div>
+      <div className="px-5">
+        {api.data?.sort((a, b) => a.rank - b.rank).map((data, index) => {
+          return (
+            // index is callback, key also can use 'data.mal_id'
+            <Link
+              href={`/anime/${data.mal_id}`}
+              className="cursor-pointer"
+              key={index}
+            >
+              <h3 className="font-bold lg:text-lg md:text-md text-sm p-1 text-blue-800 hover:text-indigo-500">
+                {data.title}
+              </h3>
+            </Link>
+          );
+        })}
+      </div>
+    </section>
+  );
+};
+
+const TopCharacterAnime = ({ api }) => {
+  return (
+    <section>
+      <div className="px-5">
         {api.data?.map((data, index) => {
           return (
             // index is callback, key also can use 'data.mal_id'
             <Link
-              href={`/anime/${data.mal_id}`}
+              href={`/characters/${data.mal_id}`}
               className="cursor-pointer"
               key={index}
             >
-              <h3 className="font-bold lg:text-lg md:text-md text-sm p-1 hover:text-indigo-500">
-                {data.rank}. {data.title}
+              <h3 className="font-bold lg:text-lg md:text-md text-sm p-1 text-blue-800 hover:text-indigo-500">
+                {data.name}
               </h3>
             </Link>
           );
@@ -71,28 +94,5 @@ const RankAnime = ({ api }) => {
   );
 };
 
-const PopularAnime = ({ api }) => {
-  return (
-    <section>
-      <div>
-      {api.data?.map((data, index) => {
-          return (
-            // index is callback, key also can use 'data.mal_id'
-            <Link
-              href={`/anime/${data.mal_id}`}
-              className="cursor-pointer"
-              key={index}
-            >
-              <h3 className="font-bold lg:text-lg md:text-md text-sm p-1 hover:text-indigo-500">
-                {data.popularity}. {data.title}
-              </h3>
-            </Link>
-          );
-        })}
-      </div>
-    </section>
-  );
-};
-
-const AnimeList = { TopAnime, RecomAnime, RankAnime, PopularAnime };
+const AnimeList = { TopAnime, RecomAnime, SeasonsAnime, TopCharacterAnime };
 export default AnimeList;

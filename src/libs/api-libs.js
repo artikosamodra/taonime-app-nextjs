@@ -19,3 +19,15 @@ export const getNestedAnimeResponse = async (resource, objectProp) => {
   // //get an array of response data, then flatmap it again to get data from the item/array entry. The final result is all the data in the entry array
   // return response.data.flatMap((item) => item.entry);
 };
+
+export const getNewSeasonAnimeResponse = async (resource, query) => {
+  const response = await getAnimeResponse(resource, query); //same of await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/${resource} this just reuseable api getAnimeResponse
+  return response;
+};
+
+export const getTopCharacterAnime = async (resource, query) => {
+  const response = await fetch(
+    `${process.env.NEXT_PUBLIC_API_BASE_URL}/${resource}?${query}`
+  );
+  return response.json();
+};

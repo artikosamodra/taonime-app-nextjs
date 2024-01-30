@@ -8,7 +8,7 @@ import AnimeInfo from "@/app/component/Utilities/AnimeInfo";
 //params = default, id from fetch api JIKAN
 const Page = async ({ params: { id } }) => {
   const detail = await getAnimeResponse(`anime/${id}`);
-  console.log(detail);
+  // console.log(detail);
 
   return (
     <section className="container-fluid mt-20 md:mx-10 mx-0 p-4">
