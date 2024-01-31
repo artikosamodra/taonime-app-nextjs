@@ -1,4 +1,4 @@
-import { getTopCharacterAnime } from "@/libs/api-libs";
+import { getAnimeResponse, getTopCharacterAnime } from "@/libs/api-libs";
 import Header from "@/app/component/AnimeList/Header";
 import Link from "next/link";
 import AnimeInfo from "@/app/component/Utilities/AnimeInfo";
@@ -38,6 +38,15 @@ const Page = async ({ params: { id } }) => {
           <div>
             <p className="max-w-100">{detailChar.data.about}</p>
           </div>
+        </div>
+
+        <div className="text-center">
+          <Link
+            href={detailChar.data.url}
+            className="text-indigo-500 font-bold"
+          >
+            Official Website
+          </Link>
         </div>
       </div>
     </section>
