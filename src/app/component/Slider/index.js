@@ -52,6 +52,7 @@ const Slider = ({ dataSlider }) => {
                     width={400}
                     height={400}
                     className="img-toplist"
+                    priority={true}
                   />
                 </div>
                 <h3 className="font-bold lg:text-lg md:text-md text-sm p-3 mb-5">
