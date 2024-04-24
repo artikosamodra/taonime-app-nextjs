@@ -5,6 +5,7 @@ import Slider from "../Slider";
 
 // Card Setting Top List
 const TopAnime = ({ api }) => {
+  
   return (
     <section>
       <div className="grid lg:grid-cols-7 md:grid-cols-5 grid-cols-2 gap-2">

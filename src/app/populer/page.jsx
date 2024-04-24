@@ -1,7 +1,8 @@
 "use client"; //useState or useEffect from React
 import React, { useEffect, useState } from "react";
+import Loading from "../loading";
 
-import Header from "../component/AnimeList/Header";
+// import Header from "../component/AnimeList/Header";
 import HeaderMenu from "../component/Utilities/HeaderMenu";
 import Pagination from "../component/Utilities/Pagination";
 
@@ -26,6 +27,10 @@ const Page = () => {
   }, [page]); //depedence from const page
   //useState(1) for first acces, after add value, endpoint fecth again next data
 
+  if (TopAnime < 25) {
+    // Menampilkan loading atau pesan lainnya jika data masih diambil
+    return <Loading />;
+  }
   return (
     <>
       <section className="container-fluid mt-20 md:mx-10 mx-0 p-4">
